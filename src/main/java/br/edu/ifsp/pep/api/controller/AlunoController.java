@@ -85,7 +85,7 @@ public class AlunoController {
     public ResponseEntity<Aluno> atualizarCPF(@RequestParam("cpf") String cpf, @PathVariable Integer matricula) {
         Optional<Aluno> alunoOptional = alunoService.acharPorMatricula(matricula);
 
-        if (alunoOptional == null) {
+        if (alunoOptional.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
 
